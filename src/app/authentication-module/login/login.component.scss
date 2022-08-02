@@ -1,0 +1,74 @@
+.navbar,
+.card {
+    background: var(--bg-gradient);
+    padding: 1rem 1.5rem;
+    color: white;
+}
+
+.logo {
+    h1 {
+        background: linear-gradient(to right, #fff7f3, #fff7f3);
+        ;
+        -webkit-text-fill-color: transparent;
+        -moz-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+    }
+}
+
+.card {
+    width: 27rem;
+    margin: 6rem auto;
+    height: 40rem;
+    box-shadow: 13px 10px 13px -5px rgb(1 1 1 / 17%);
+    border-radius: 15px;
+}
+
+.title,
+.message {
+    text-align: center;
+}
+
+.title {
+    padding: 3rem 0 .4rem 0;
+}
+
+mat-form-field {
+    margin: .7rem 0;
+    width: 100%;
+}
+
+label {
+    // margin: 0 .5rem;
+    text-align: center;
+}
+
+mat-card-actions {
+    position: absolute;
+    bottom: 7rem;
+    left: 55%;
+    transform: translate(-55%, -55%);
+    button {
+        width: 10rem;
+    }
+}
+
+.form {
+    margin: 5rem 1rem;
+    padding: 1rem;
+}
+
+mat-card-subtitle,
+label {
+    color: wheat;
+}
+
+::ng-deep {
+    .mat-form-field-label {
+        color: white !important;
+    }
+}
+
+button {
+    color: white;
+}
