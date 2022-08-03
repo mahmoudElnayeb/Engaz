@@ -1,1 +1,35 @@
-<p>post-control-component works!</p>
+<mat-card>
+    <mat-card-title class="p-3 d-flex justify-content-between align-item-center">
+        <strong>{{stateData.page==='insert'?'Insert Posts ':'Update Posts '}} </strong>
+        <button mat-mini-fab color="primary" (click)="back()"> <mat-icon>keyboard_return</mat-icon></button>
+    </mat-card-title>
+    <form [formGroup]="posts" (ngSubmit)="submit(posts)">
+        <div class="form">
+            <div class="row">
+                <label class="col col-1"> <strong>Title</strong></label>
+                <mat-form-field class="col col-11">
+                    <mat-label>Enter your title</mat-label>
+                    <input matInput placeholder="pat@example.com" formControlName="title" required #email />
+                    <mat-error *ngIf="posts.controls.title.hasError('required')">Field is requried</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="row">
+                <label class="col col-1"> <strong>Body</strong></label>
+
+                <mat-form-field class="col col-11">
+                    <mat-label>Enter your body</mat-label>
+                    <textarea matInput formControlName="body" required rows="3"></textarea>
+
+                    <mat-error *ngIf="posts.controls.body.hasError('required')">Field is requried</mat-error>
+
+                </mat-form-field>
+            </div>
+        </div>
+
+        <mat-card-actions [dir]="'ltr'">
+            <button mat-raised-button color="primary" [disabled]="posts.invalid">{{stateData.page==='insert'?'save':'update'}}</button>
+        </mat-card-actions>
+
+    </form>
+</mat-card>

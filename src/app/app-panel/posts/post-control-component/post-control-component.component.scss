@@ -1,0 +1,23 @@
+label strong {
+    margin: 0 1rem;
+}
+
+.row {
+    margin: 3rem 0;
+}
+
+label {
+    text-align: center;
+    align-items: center;
+    display: flex;
+}
+
+button {
+    // width: 100%;
+    margin: .5rem 3rem;
+}
+
+mat-card-actions {
+    direction: rtl !important;
+    padding: 1rem 3rem;
+}

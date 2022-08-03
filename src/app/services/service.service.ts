@@ -33,7 +33,7 @@ export class ServiceService {
     return this.http.put<Post>('posts'+id , data)
   }
 deletePosts(id:number):Observable<Post>{
-    return this.http.delete<Post>('posts'+id)
+    return this.http.delete<Post>('posts/'+id)
   }
 
   getcomments():Observable<Post>{

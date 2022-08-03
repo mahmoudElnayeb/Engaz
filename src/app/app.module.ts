@@ -11,8 +11,9 @@ import { SharedModule } from './shared/shared.module';
 import { AngularFireModule } from '@angular/fire/';
 import { environment } from '../environments/environment';
 import { ServiceService } from './services/service.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthGardGuard } from './guards/auth-gard.guard';
+import { MainInterInterceptor } from './interceptor/main-inter.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,8 +35,12 @@ import { AuthGardGuard } from './guards/auth-gard.guard';
     MatInputModule,
     HttpClientModule,
         AuthGardGuard,
-
-  ServiceService],
+  ServiceService,
+{
+  provide: HTTP_INTERCEPTORS,
+  useClass: MainInterInterceptor,
+  multi: true
+}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

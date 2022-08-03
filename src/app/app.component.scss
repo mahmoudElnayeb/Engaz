@@ -1,0 +1,13 @@
+.top {
+    flex: 0 0 10%;
+}
+
+.main {
+    flex: 0 0 90%;
+}
+
+.all {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
