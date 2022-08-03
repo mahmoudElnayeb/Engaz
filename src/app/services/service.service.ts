@@ -1,3 +1,4 @@
+import { Comment } from './../interfaces/comment.interfaces';
 import { Observable } from 'rxjs';
 import { Injectable,NgZone } from '@angular/core';
 import{HttpClient}from'@angular/common/http'
@@ -36,17 +37,17 @@ deletePosts(id:number):Observable<Post>{
     return this.http.delete<Post>('posts/'+id)
   }
 
-  getcomments():Observable<Post>{
-    return this.http.get<Post>('comments')
+  getcomments():Observable<Comment>{
+    return this.http.get<Comment>('comments')
   }
- addcomments(data:Post):Observable<Post>{
-    return this.http.post<Post>('comments', data)
+ addcomments(data:Comment):Observable<Comment>{
+    return this.http.post<Comment>('comments', data)
   }
- updatecomments(data:Post , id:number):Observable<Post>{
-    return this.http.put<Post>('comments'+id , data)
+ updatecomments(data:Comment , id:number):Observable<Comment>{
+    return this.http.put<Comment>('comments/'+id , data)
   }
-deletecomments(id:number):Observable<Post>{
-    return this.http.delete<Post>('comments'+id)
+deletecomments(id:number):Observable<Comment>{
+    return this.http.delete<Comment>('comments/'+id)
   }
 
   SignIn(email: string, password: string) {

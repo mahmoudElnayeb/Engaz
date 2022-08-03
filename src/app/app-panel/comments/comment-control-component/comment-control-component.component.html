@@ -1,1 +1,45 @@
-<p>comment-control-component works!</p>
+<mat-card>
+    <mat-card-title class="p-3 d-flex justify-content-between align-item-center">
+        <strong>{{stateData.page==='insert'?'Insert Comment ':'Update Comment '}} </strong>
+        <button mat-mini-fab color="primary" (click)="back()"> <mat-icon>keyboard_return</mat-icon></button>
+    </mat-card-title>
+    <form [formGroup]="comments" (ngSubmit)="submit(comments)">
+        <div class="form">
+            <div class="row">
+                <label class="col col-1"> <strong>Name</strong></label>
+                <mat-form-field class="col col-11">
+                    <mat-label>Enter your name</mat-label>
+                    <input matInput placeholder="Mahmoud Ahmed" formControlName="name" required />
+                    <mat-error *ngIf="comments.controls.name.hasError('required')">Field is requried</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="row">
+                <label class="col col-1"> <strong>Email</strong></label>
+                <mat-form-field class="col col-11">
+                    <mat-label>Enter your email</mat-label>
+                    <input matInput placeholder="mahmoud@yahoo.com" formControlName="email" required inputmode="email" />
+                    <mat-error *ngIf="comments.controls.email.hasError('required')">Field is requried</mat-error>
+                    <mat-error *ngIf="comments.controls.email.hasError('email')">Email not valid</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="row">
+                <label class="col col-1"> <strong>Body</strong></label>
+
+                <mat-form-field class="col col-11">
+                    <mat-label>Enter your body</mat-label>
+                    <textarea matInput formControlName="body" required rows="3"></textarea>
+
+                    <mat-error *ngIf="comments.controls.body.hasError('required')">Field is requried</mat-error>
+
+                </mat-form-field>
+            </div>
+        </div>
+
+        <mat-card-actions [dir]="'ltr'">
+            <button mat-raised-button color="primary" [disabled]="comments.invalid">{{stateData.page==='insert'?'save':'update'}}</button>
+        </mat-card-actions>
+
+    </form>
+</mat-card>
