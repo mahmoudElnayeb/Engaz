@@ -1,5 +1,5 @@
 import { Comment } from './../interfaces/comment.interfaces';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Injectable,NgZone } from '@angular/core';
 import{HttpClient}from'@angular/common/http'
 import { Post } from '../interfaces/post.interface';
@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class ServiceService {
-
+private user= new BehaviorSubject({})
   constructor(
     private http :HttpClient,
     public afs: AngularFirestore,
@@ -64,5 +64,12 @@ deletecomments(id:number):Observable<Comment>{
        localStorage.setItem('inter',null)
 
       });
+  }
+
+  assignUser(user){
+    this.user.next(user)
+  }
+  getUser(){
+    return this.user
   }
 }

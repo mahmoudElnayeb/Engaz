@@ -1,10 +1,10 @@
-<mat-card>
+<mat-card style="overflow: scroll;">
     <mat-card-title class="p-3 d-flex justify-content-between align-item-center">
         <strong>Comments </strong>
         <button mat-mini-fab color="primary" (click)="navigateTo('insert', null)"> <mat-icon>add</mat-icon></button>
     </mat-card-title>
     <div class="mat-elevation-z8">
-        <table mat-table [dataSource]="dataSource" [trackBy]="trackPost">
+        <table mat-table [dataSource]="dataSource" [trackBy]="trackPost" style="overflow: scroll;">
 
             <!-- Position Column -->
             <ng-container matColumnDef="position" class="text-center">
